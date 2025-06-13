@@ -79,6 +79,17 @@
             font-size: 0.85em;
             color: var(--text-color); /* Ensure inline code text color contrasts with its bg */
         }
+
+        /* Change visited link text to white on the homepage */
+        /* For .go-to-link spans within visited card links */
+        a.card:visited .go-to-link {
+            color: #ffffff;
+        }
+
+        /* For other direct <a> links within cards (e.g., Google Drive link) */
+        .card a:visited {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +115,7 @@
                 <div class="grid-container" style="grid-template-columns: 1fr;"> <!-- Single column for this section -->
                     <div class="card">
                         <h3>Essential Links & Information</h3>
-                        <p><strong>Google Drive for Materials:</strong> <a href="https://drive.google.com/drive/folders/1gF4i4vLwpVd8bOPxMy7cOu_f0qRLWA0C?usp=sharing" target="_blank" rel="noopener noreferrer">Access All Bootcamp Materials Here</a></p>
+                        <p><strong>Google Drive for Materials:</strong> <a href="https://drive.google.com/drive/folders/1ReSZ8YUoY_oQxpyrWosArvlbTeBkh25u?usp=sharing" target="_blank" rel="noopener noreferrer">Access All Bootcamp Materials Here</a></p>
                         <p><strong>Mac Lab Location:</strong> Building 1, Level 3, Room 006 (1.3.006)</p>
                         <p><strong>Mac Lab Guest Account:</strong></p>
                         <ul style="list-style-type: disc; padding-left: 20px;">
