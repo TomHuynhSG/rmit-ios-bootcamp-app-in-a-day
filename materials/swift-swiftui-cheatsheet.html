@@ -215,30 +215,6 @@
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Random Numbers & Elements</h3>
-                        <p>Swift makes it easy to get random values, whether from a numerical range or from a collection like an array. Use <code>.randomElement() ?? defaultValue</code> to safely pick from an array.</p>
-                        <pre><code><span class="comment">// Random number in a range (e.g., 1 to 100)</span>
-<span class="keyword">let</span> randomNumber <span class="operator">=</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">100</span>)
-print(<span class="string">"Random number: <span class="operator">\(</span>randomNumber<span class="operator">)</span>"</span>)
-
-<span class="comment">// Random element from an array</span>
-<span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>]
-<span class="keyword">let</span> randomFruit <span class="operator">=</span> fruits.randomElement() ?? <span class="string">"No fruit!"</span>
-print(<span class="string">"Random fruit: <span class="operator">\(</span>randomFruit<span class="operator">)</span>"</span>)
-
-<span class="keyword">let</span> emptyArray: [<span class="type">String</span>] <span class="operator">=</span> []
-<span class="keyword">let</span> randomFromEmpty <span class="operator">=</span> emptyArray.randomElement() ?? <span class="string">"Default Value"</span>
-print(<span class="string">"From empty: <span class="operator">\(</span>randomFromEmpty<span class="operator">)</span>"</span>)</code></pre>
-                        <div class="output-container">
-                            <h4>Example Output</h4>
-                            <div class="output-box" id="random-output-combined" style="font-family: monospace; align-items: flex-start;">
-                                Random number: [some number 1-100]<br>
-                                Random fruit: Apple (or Banana, Cherry)<br>
-                                From empty: Default Value
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
                         <h3>If/Else Statements</h3>
                         <p>Use <code>if</code>, <code>else if</code>, and <code>else</code> to make decisions in your code based on certain conditions.</p>
                         <pre><code><span class="keyword">let</span> temperature <span class="operator">=</span> <span class="number">25</span>
@@ -282,13 +258,27 @@ print(<span class="string">"From empty: <span class="operator">\(</span>randomFr
                         </div>
                     </div>
                     <div class="card">
-                        <h3>String Interpolation</h3>
-                        <p>To mix text with variables or constants inside a <code><span class="type">Text</span></code> view, use a backslash with parentheses: <code><span class="operator">\(</span>yourVariable<span class="operator">)</span></code>.</p>
-                        <pre><code><span class="keyword">let</span> name <span class="operator">=</span> <span class="string">"Alex"</span>
-<span class="type">Text</span>(<span class="string">"My name is <span class="operator">\(</span>name<span class="operator">)</span>"</span>)</code></pre>
+                        <h3>Random Numbers & Elements</h3>
+                        <p>Swift makes it easy to get random values, whether from a numerical range or from a collection like an array. Use <code>.randomElement() ?? defaultValue</code> to safely pick from an array.</p>
+                        <pre><code><span class="comment">// Random number in a range (e.g., 1 to 100)</span>
+<span class="keyword">let</span> randomNumber <span class="operator">=</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">100</span>)
+print(<span class="string">"Random number: <span class="operator">\(</span>randomNumber<span class="operator">)</span>"</span>)
+
+<span class="comment">// Random element from an array</span>
+<span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>]
+<span class="keyword">let</span> randomFruit <span class="operator">=</span> fruits.randomElement() ?? <span class="string">"No fruit!"</span>
+print(<span class="string">"Random fruit: <span class="operator">\(</span>randomFruit<span class="operator">)</span>"</span>)
+
+<span class="keyword">let</span> emptyArray: [<span class="type">String</span>] <span class="operator">=</span> []
+<span class="keyword">let</span> randomFromEmpty <span class="operator">=</span> emptyArray.randomElement() ?? <span class="string">"Default Value"</span>
+print(<span class="string">"From empty: <span class="operator">\(</span>randomFromEmpty<span class="operator">)</span>"</span>)</code></pre>
                         <div class="output-container">
-                            <h4>Output</h4>
-                        <div class="output-box">My name is Alex</div>
+                            <h4>Example Output</h4>
+                            <div class="output-box" id="random-output-combined" style="font-family: monospace; align-items: flex-start;">
+                                Random number: [some number 1-100]<br>
+                                Random fruit: Apple (or Banana, Cherry)<br>
+                                From empty: Default Value
+                            </div>
                         </div>
                     </div>
                     <!-- String Interpolation card was moved here, so this is the original Random Item from Array card which is now removed -->
