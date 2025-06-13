@@ -135,3 +135,26 @@ footer {
     background-color: var(--heading-color); /* Darker color on hover */
     color: var(--card-bg-color);
 }
+
+/* Scroll-to-Top Button */
+.scroll-to-top-button {
+    display: none; /* Hidden by default, JS will show it */
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; /* Ensure it's on top of other content */
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: white; /* Emoji color might not be affected, but text color if emoji fails */
+    cursor: pointer;
+    padding: 10px 12px; /* Adjust padding for a good size */
+    border-radius: 50%; /* Make it circular */
+    font-size: 18px; /* Adjust emoji size */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.scroll-to-top-button:hover {
+    background-color: var(--heading-color); /* Darken on hover */
+}

@@ -34,4 +34,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // }
     // // If you add functions like updateTapCount, ensure they are either globally accessible
     // // or attached to event listeners appropriately if elements are dynamically added.
+    
+    // Scroll-to-Top Button Functionality
+    let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // When the user scrolls down 100px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (scrollToTopBtn) { // Check if the button exists on the page
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    // This function needs to be globally accessible if called by inline onclick
+    // or we can attach it via addEventListener if the button is guaranteed to exist at DOMContentLoaded
+});
+
+// Make scrollToTop globally accessible for inline onclick
+function scrollToTop() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+// Re-check and attach event listener if button exists after DOM is loaded,
+// this handles cases where the button might be added by other scripts or if inline onclick is removed.
+document.addEventListener('DOMContentLoaded', function() {
+    let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (scrollToTopBtn && !scrollToTopBtn.onclick) { // Check if onclick is not already set
+        scrollToTopBtn.addEventListener('click', scrollToTop);
+    }
 });
