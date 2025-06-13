@@ -148,6 +148,82 @@
             content: ' →';
         }
 
+        /* Styles for the new section */
+        .cheatsheet-section {
+            margin-bottom: 40px;
+            background-color: var(--card-bg-color); /* Match card background for the section */
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .cheatsheet-section > h2 { /* Style for the main collapsible header */
+            font-size: 1.5rem; /* Adjusted for index page context */
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+        
+        /* Copied from swift-swiftui-cheatsheet.html for collapsible functionality */
+        .collapsible-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapse-icon {
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            font-size: 1.5em; /* Matches h2 font-size better */
+            line-height: 1;
+            padding: 0 10px;
+        }
+        .collapse-icon::before {
+            content: '−'; /* Minus sign */
+        }
+        .collapsible-header.collapsed .collapse-icon {
+            transform: rotate(-180deg);
+        }
+        .collapsible-header.collapsed .collapse-icon::before {
+            content: '+'; /* Plus sign */
+        }
+        .collapsible-content {
+            max-height: 10000px; /* Large value to allow content to show */
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+            margin-top: 15px; /* Add some space when content is visible */
+        }
+        .collapsible-content.collapsed {
+            max-height: 0;
+            margin-top: 0 !important; /* Ensure no margin when collapsed */
+        }
+        /* Ensure cards within the new section use the global card styling but adjust grid if needed */
+        .cheatsheet-section .grid-container {
+             grid-template-columns: 1fr; /* Override for single column layout within this section */
+             gap: 15px; /* Smaller gap for nested cards */
+        }
+        .cheatsheet-section .card {
+            padding: 15px; /* Slightly less padding for nested cards */
+        }
+        .cheatsheet-section .card h3 {
+            font-size: 1.15rem; /* Slightly smaller heading for nested cards */
+        }
+        .cheatsheet-section .card ul {
+            list-style-position: inside;
+            padding-left: 0; /* Reset padding if needed */
+            margin-bottom: 10px;
+        }
+        .cheatsheet-section .card code { /* Style for inline code if any */
+            font-family: "Fira Code", "Courier New", monospace;
+            background-color: var(--bg-color); /* Slightly different from code block bg */
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
 
         /* Footer */
         footer {
@@ -173,6 +249,37 @@
     </header>
 
     <main class="container">
+        <section class="cheatsheet-section" id="bootcamp-resources">
+            <h2 class="collapsible-header start-open"> <!-- Added start-open to make it open by default -->
+                Bootcamp Setup & Resources
+                <span class="collapse-icon"></span>
+            </h2>
+            <div class="collapsible-content">
+                <div class="grid-container" style="grid-template-columns: 1fr;"> <!-- Single column for this section -->
+                    <div class="card">
+                        <h3>Essential Links & Information</h3>
+                        <p><strong>Google Drive for Materials:</strong> <a href="https://drive.google.com/drive/folders/1gF4i4vLwpVd8bOPxMy7cOu_f0qRLWA0C?usp=sharing" target="_blank" rel="noopener noreferrer">Access All Bootcamp Materials Here</a></p>
+                        <p><strong>Mac Lab Location:</strong> Building 1, Level 3, Room 006 (1.3.006)</p>
+                        <p><strong>Mac Lab Guest Account:</strong></p>
+                        <ul style="list-style-type: disc; padding-left: 20px;">
+                            <li>Username: <code>g00250</code></li>
+                            <li>Password: <code>Rm!t202E</code></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Opening Swift Playgrounds on Mac:</h3>
+                        <ol style="list-style-type: decimal; padding-left: 20px;">
+                            <li>Click on the <strong>Finder</strong> icon in the Dock (it looks like a blue smiling face).</li>
+                            <li>In the Finder window that appears, click on <strong>Applications</strong> in the sidebar on the left.</li>
+                            <li>Scroll through the list of applications to find <strong>Swift Playgrounds</strong>. It has a white icon with an orange bird.</li>
+                            <li>Double-click the <strong>Swift Playgrounds</strong> icon to open it.</li>
+                            <li>If it's your first time opening it, you might see a welcome screen. You can close this or, if prompted, choose to "Start with an App" or look for a "New Project" / "New App" option. For the bootcamp, we'll typically start a new App project.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="grid-container">
             <a href="materials/bootcamp-snippets.html" class="card">
                 <h3>Bootcamp Snippets & Setup</h3>
@@ -196,5 +303,29 @@
         <p>© 2025 RMIT iOS Bootcamp. Maintained for educational purposes.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.collapsible-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    header.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                });
+
+                // Start all sections collapsed by default, unless they have 'start-open'
+                if (!header.classList.contains('start-open')) {
+                    header.classList.add('collapsed');
+                    if (header.nextElementSibling) {
+                        header.nextElementSibling.classList.add('collapsed');
+                    }
+                } else { // If it should start open, ensure classes are correct
+                    header.classList.remove('collapsed');
+                     if (header.nextElementSibling) {
+                        header.nextElementSibling.classList.remove('collapsed');
+                     }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
