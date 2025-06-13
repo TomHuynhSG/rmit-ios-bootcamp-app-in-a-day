@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - RMIT Bootcamp</title>
+    <style>
+        /* Basic Reset & Font Setup - Adapted from swift-swiftui-cheatsheet.html */
+        :root {
+            --bg-color: #f4f7f9;
+            --card-bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #1a2533;
+            --accent-color: #e67e22; /* RMIT Red might be #D73F09 or similar, using cheatsheet's orange for now */
+            --border-color: #e0e6ed;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a202c;
+                --card-bg-color: #2d3748;
+                --text-color: #e2e8f0;
+                --heading-color: #ffffff;
+                --accent-color: #f0984a;
+                --border-color: #4a5568;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px; /* Adjusted for image gallery */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--heading-color);
+            font-weight: 300;
+        }
+
+        header h1 span {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        .image-gallery-section > h2 {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minmax for images */
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center image and text */
+            text-align: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px var(--shadow-color);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px; /* Limit image preview height */
+            border-radius: 4px;
+            margin-bottom: 10px;
+            object-fit: contain; /* Ensure image aspect ratio is maintained */
+        }
+
+        .card .filename {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            word-break: break-all; /* Prevent long filenames from breaking layout */
+        }
+        
+        .card .download-link {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .card .download-link:hover {
+            background-color: var(--accent-color);
+            color: var(--card-bg-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Image <span>Gallery</span></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="image-gallery-section">
+            <h2>Available Images</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <img src="avatar-1.png" alt="Preview of avatar-1.png">
+                    <p class="filename">avatar-1.png</p>
+                    <a href="avatar-1.png" download="avatar-1.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="avatar-2.png" alt="Preview of avatar-2.png">
+                    <p class="filename">avatar-2.png</p>
+                    <a href="avatar-2.png" download="avatar-2.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="avatar-3.png" alt="Preview of avatar-3.png">
+                    <p class="filename">avatar-3.png</p>
+                    <a href="avatar-3.png" download="avatar-3.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="avatar-4.png" alt="Preview of avatar-4.png">
+                    <p class="filename">avatar-4.png</p>
+                    <a href="avatar-4.png" download="avatar-4.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="avatar-5.png" alt="Preview of avatar-5.png">
+                    <p class="filename">avatar-5.png</p>
+                    <a href="avatar-5.png" download="avatar-5.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="avatar-6.png" alt="Preview of avatar-6.png">
+                    <p class="filename">avatar-6.png</p>
+                    <a href="avatar-6.png" download="avatar-6.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="magic-ball-8.png" alt="Preview of magic-ball-8.png">
+                    <p class="filename">magic-ball-8.png</p>
+                    <a href="magic-ball-8.png" download="magic-ball-8.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="magic-ball-empty.png" alt="Preview of magic-ball-empty.png">
+                    <p class="filename">magic-ball-empty.png</p>
+                    <a href="magic-ball-empty.png" download="magic-ball-empty.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="rmit-game-logo.png" alt="Preview of rmit-game-logo.png">
+                    <p class="filename">rmit-game-logo.png</p>
+                    <a href="rmit-game-logo.png" download="rmit-game-logo.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="rmit-logo-black.png" alt="Preview of rmit-logo-black.png">
+                    <p class="filename">rmit-logo-black.png</p>
+                    <a href="rmit-logo-black.png" download="rmit-logo-black.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="rmit-logo-white.png" alt="Preview of rmit-logo-white.png">
+                    <p class="filename">rmit-logo-white.png</p>
+                    <a href="rmit-logo-white.png" download="rmit-logo-white.png" class="download-link">Download</a>
+                </div>
+                <div class="card">
+                    <img src="rmit-logo.png" alt="Preview of rmit-logo.png">
+                    <p class="filename">rmit-logo.png</p>
+                    <a href="rmit-logo.png" download="rmit-logo.png" class="download-link">Download</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 RMIT Bootcamp Image Gallery</p>
+    </footer>
+
+</body>
+</html>
