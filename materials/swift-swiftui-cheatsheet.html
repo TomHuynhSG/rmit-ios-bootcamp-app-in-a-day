@@ -342,6 +342,37 @@
     </header>
 
     <main class="container">
+        <section class="cheatsheet-section" id="bootcamp-resources">
+            <h2 class="collapsible-header start-open"> <!-- Added start-open to make it open by default -->
+                Bootcamp Setup & Resources
+                <span class="collapse-icon"></span>
+            </h2>
+            <div class="collapsible-content">
+                <div class="grid-container" style="grid-template-columns: 1fr;"> <!-- Single column for this section -->
+                    <div class="card">
+                        <h3>Essential Links & Information</h3>
+                        <p><strong>Google Drive for Materials:</strong> <a href="https://drive.google.com/drive/folders/1gF4i4vLwpVd8bOPxMy7cOu_f0qRLWA0C?usp=sharing" target="_blank" rel="noopener noreferrer">Access All Bootcamp Materials Here</a></p>
+                        <p><strong>Mac Lab Location:</strong> Building 1, Level 3, Room 006 (1.3.006)</p>
+                        <p><strong>Mac Lab Guest Account:</strong></p>
+                        <ul style="list-style-type: disc; padding-left: 20px;">
+                            <li>Username: <code>g00250</code></li>
+                            <li>Password: <code>Rm!t202E</code></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Opening Swift Playgrounds on Mac:</h3>
+                        <ol style="list-style-type: decimal; padding-left: 20px;">
+                            <li>Click on the <strong>Finder</strong> icon in the Dock (it looks like a blue smiling face).</li>
+                            <li>In the Finder window that appears, click on <strong>Applications</strong> in the sidebar on the left.</li>
+                            <li>Scroll through the list of applications to find <strong>Swift Playgrounds</strong>. It has a white icon with an orange bird.</li>
+                            <li>Double-click the <strong>Swift Playgrounds</strong> icon to open it.</li>
+                            <li>If it's your first time opening it, you might see a welcome screen. You can close this or, if prompted, choose to "Start with an App" or look for a "New Project" / "New App" option. For the bootcamp, we'll typically start a new App project.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="cheatsheet-section">
             <!-- MODIFIED: Added collapsible functionality -->
             <h2 class="collapsible-header">
@@ -392,18 +423,37 @@
 <span class="keyword">var</span> scores: [<span class="type">Int</span>] <span class="operator">=</span> [<span class="number">98</span>, <span class="number">102</span>, <span class="number">85</span>]</code></pre>
                     </div>
                     <div class="card">
-                        <h3>Random Numbers & Elements</h3>
-                        <p>Swift makes it easy to get random values, whether from a numerical range or from a collection like an array.</p>
-                        <pre><code><span class="comment">// Random element from an array</span>
-<span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>]
-<span class="keyword">if let</span> randomFruit <span class="operator">=</span> fruits.randomElement() {
-    print(<span class="string">"Random fruit: <span class="operator">\(</span>randomFruit<span class="operator">)</span>"</span>)
-}</code></pre>
+                        <h3>String Interpolation</h3>
+                        <p>To mix text with variables or constants inside a <code><span class="type">Text</span></code> view, use a backslash with parentheses: <code><span class="operator">\(</span>yourVariable<span class="operator">)</span></code>.</p>
+                        <pre><code><span class="keyword">let</span> name <span class="operator">=</span> <span class="string">"Alex"</span>
+<span class="type">Text</span>(<span class="string">"My name is <span class="operator">\(</span>name<span class="operator">)</span>"</span>)</code></pre>
                         <div class="output-container">
-                            <!-- MODIFIED: Changed title from "Possible Output" -->
                             <h4>Output</h4>
-                            <!-- MODIFIED: Added ID for dynamic content -->
-                            <div class="output-box" id="random-fruit-output" style="font-family: monospace; align-items: flex-start;"></div>
+                            <div class="output-box">My name is Alex</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Random Numbers & Elements</h3>
+                        <p>Swift makes it easy to get random values, whether from a numerical range or from a collection like an array. Use <code>.randomElement() ?? defaultValue</code> to safely pick from an array.</p>
+                        <pre><code><span class="comment">// Random number in a range (e.g., 1 to 100)</span>
+<span class="keyword">let</span> randomNumber <span class="operator">=</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">100</span>)
+print(<span class="string">"Random number: <span class="operator">\(</span>randomNumber<span class="operator">)</span>"</span>)
+
+<span class="comment">// Random element from an array</span>
+<span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>]
+<span class="keyword">let</span> randomFruit <span class="operator">=</span> fruits.randomElement() ?? <span class="string">"No fruit!"</span>
+print(<span class="string">"Random fruit: <span class="operator">\(</span>randomFruit<span class="operator">)</span>"</span>)
+
+<span class="keyword">let</span> emptyArray: [<span class="type">String</span>] <span class="operator">=</span> []
+<span class="keyword">let</span> randomFromEmpty <span class="operator">=</span> emptyArray.randomElement() ?? <span class="string">"Default Value"</span>
+print(<span class="string">"From empty: <span class="operator">\(</span>randomFromEmpty<span class="operator">)</span>"</span>)</code></pre>
+                        <div class="output-container">
+                            <h4>Example Output</h4>
+                            <div class="output-box" id="random-output-combined" style="font-family: monospace; align-items: flex-start;">
+                                Random number: [some number 1-100]<br>
+                                Random fruit: Apple (or Banana, Cherry)<br>
+                                From empty: Default Value
+                            </div>
                         </div>
                     </div>
                     <div class="card">
@@ -449,6 +499,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <h3>String Interpolation</h3>
+                        <p>To mix text with variables or constants inside a <code><span class="type">Text</span></code> view, use a backslash with parentheses: <code><span class="operator">\(</span>yourVariable<span class="operator">)</span></code>.</p>
+                        <pre><code><span class="keyword">let</span> name <span class="operator">=</span> <span class="string">"Alex"</span>
+<span class="type">Text</span>(<span class="string">"My name is <span class="operator">\(</span>name<span class="operator">)</span>"</span>)</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                        <div class="output-box">My name is Alex</div>
+                        </div>
+                    </div>
+                    <!-- String Interpolation card was moved here, so this is the original Random Item from Array card which is now removed -->
                 </div>
             </div>
         </section>
@@ -479,16 +540,16 @@
                     </div>
                     <div class="card">
                         <h3>HStack</h3>
-                        <p>Use `HStack` to arrange views in a horizontal line, side-by-side, like books on a shelf.</p>
-                        <pre><code><span class="type">HStack</span>(spacing: <span class="number">10</span>) {
-    <span class="type">Text</span>(<span class="string">"Left"</span>)
-    <span class="type">Text</span>(<span class="string">"Right"</span>)
+                        <p>Stacks views horizontally. Good for icons next to text.</p>
+                        <pre><code><span class="type">HStack</span>(spacing: <span class="number">8</span>) {
+    <span class="type">Image</span>(systemName: <span class="string">"star.fill"</span>)
+    <span class="type">Text</span>(<span class="string">"My Hobby"</span>)
 }</code></pre>
                         <div class="output-container">
                             <h4>Output</h4>
-                            <div class="output-box" style="flex-direction: row; gap: 10px;">
-                                <div>Left</div>
-                                <div>Right</div>
+                            <div class="output-box" style="flex-direction: row; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px dashed var(--border-color); background-color: var(--card-bg-color);">
+                                <i class="fas fa-star" style="font-size: 1.5em; color: var(--accent-color);"></i>
+                                <span style="font-size: 1em;">My Hobby</span>
                             </div>
                         </div>
                     </div>
@@ -510,16 +571,16 @@
                     </div>
                     <div class="card">
                         <h3>ZStack</h3>
-                        <p><code>ZStack</code> overlays views on top of each other, like stacking transparent sheets. The first view in the <code>ZStack</code> is at the bottom, and subsequent views are layered on top.</p>
+                        <p>Layers views on top of each other. Useful for backgrounds.</p>
                         <pre><code><span class="type">ZStack</span> {
-    <span class="type">Color</span>.yellow <span class="comment">// Bottom layer</span>
-    <span class="type">Text</span>(<span class="string">"Centered Text"</span>) <span class="comment">// Top layer</span>
-}
-.frame(width: <span class="number">150</span>, height: <span class="number">100</span>)</code></pre>
-                        <div class="output-container">
+    <span class="type">Color</span>.purple.ignoresSafeArea() <span class="comment">// Background</span>
+    <span class="type">Text</span>(<span class="string">"Content on Top"</span>) <span class="comment">// Foreground</span>
+        .foregroundColor(.white)
+}</code></pre>
+                         <div class="output-container">
                             <h4>Output</h4>
-                            <div class="output-box" style="width: 150px; height: 100px; background-color: yellow; display: flex; align-items: center; justify-content: center; position: relative;">
-                                <span style="position: absolute; color: black;">Centered Text</span>
+                            <div class="output-box" style="background-color: purple; color: white; width:100%; height: 80px;">
+                                Content on Top
                             </div>
                         </div>
                     </div>
@@ -562,19 +623,31 @@
                 <h3 class="subsection-title">Views & Modifiers</h3>
                 <div class="grid-container">
                     <div class="card">
-                        <h3>Text View: Displaying Text</h3>
-                        <p>The <code>Text</code> view is the most fundamental way to display read-only text on the screen.</p>
-                        <pre><code><span class="type">Text</span>(<span class="string">"Hello, SwiftUI!"</span>)</code></pre>
+                        <h3>Text("Hello")</h3>
+                        <p>Displays text on the screen.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Your Name"</span>)
+    .font(.title)</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="font-size: 1.5em; font-weight: bold;">Your Name</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Image("imageName")</h3>
+                        <p>Displays an image from your project's "Assets" folder.</p>
+                        <pre><code><span class="type">Image</span>(<span class="string">"avatar1"</span>) <span class="comment">// "avatar1" must be in Assets</span>
+    .resizable()
+    .frame(width: <span class="number">100</span>, height: <span class="number">100</span>)</code></pre>
                         <div class="output-container">
                             <h4>Output</h4>
                             <div class="output-box">
-                                Hello, SwiftUI!
+                                 <div class="image-placeholder">avatar1<br>100x100</div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Image View: Using SF Symbols</h3>
-                        <p>Use <code>Image(systemName:)</code> to display icons from Apple's extensive SF Symbols library. Here are a few examples. These symbols are vector-based and adapt well to different sizes and styles.</p>
+                        <h3>Image(systemName: "...")</h3>
+                        <p>Displays an icon from Apple's SF Symbols library. These are vector-based and adapt well to different sizes and styles.</p>
                         <pre><code><span class="comment">// Displaying various SF Symbols</span>
 <span class="type">VStack</span>(spacing: <span class="number">15</span>) {
     <span class="type">Image</span>(systemName: <span class="string">"star.fill"</span>)
@@ -586,88 +659,112 @@
 .foregroundColor(.blue) <span class="comment">// Apply a consistent color</span></code></pre>
                         <div class="output-container">
                             <h4>Output</h4>
-                            <div class="output-box" style="display: flex; flex-direction: column; gap: 15px; align-items: center; font-size: 32px; color: var(--code-keyword);">
+                            <div class="output-box" style="display: flex; flex-direction: column; gap: 15px; align-items: center; font-size: 2em; color: var(--code-keyword);">
                                 <i class="fas fa-star"></i>
-                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart-circle-check"></i>
                                 <i class="fas fa-trash"></i>
                                 <i class="fas fa-folder-plus"></i>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Image View: Using Project Images</h3>
-                        <p>To display an image from your project's Asset Catalog (e.g., an image named "RMIT-banner"), use <code>Image("your-image-name")</code>.</p>
-                        <pre><code><span class="comment">// Assuming "RMIT-banner" is in your Asset Catalog</span>
-<span class="type">Image</span>(<span class="string">"RMIT-banner"</span>)</code></pre>
+                        <h3>List { ... }</h3>
+                        <p>Creates a scrolling list of items. Often contains <code>HStack</code>s.</p>
+                        <pre><code><span class="type">List</span> {
+    <span class="type">HStack</span> {
+        <span class="type">Image</span>(systemName: <span class="string">"music.note"</span>)
+        <span class="type">Text</span>(<span class="string">"Music"</span>)
+    }
+    <span class="type">HStack</span> {
+        <span class="type">Image</span>(systemName: <span class="string">"film.fill"</span>)
+        <span class="type">Text</span>(<span class="string">"Movies"</span>)
+    }
+}
+.frame(height: <span class="number">100</span>) <span class="comment">// Give the list a size</span>
+.listStyle(.plain)</code></pre>
+                        <div class="output-container">
+                            <h4>Output (Simplified)</h4>
+                            <div class="output-box" style="align-items: flex-start; height: 100px; overflow-y: auto; border: 1px solid var(--border-color); padding: 10px; background: var(--card-bg-color);">
+                                <div style="display:flex; align-items:center; gap: 5px; color: var(--text-color);"><i class="fas fa-music" style="color: var(--text-color);"></i> Music</div>
+                                <div style="display:flex; align-items:center; gap: 5px; margin-top:5px; color: var(--text-color);"><i class="fas fa-film" style="color: var(--text-color);"></i> Movies</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Common Modifiers (Your Superpowers!)</h3>
+                <div class="grid-container">
+                    <div class="card"><h3>.font()</h3><p>Changes text font and size. E.g.,<br><code>.font(.title)</code>,<br><code>.font(.headline)</code>,<br><code>.font(.system(size: 32, weight: .bold))</code>.</p></div>
+                    <div class="card"><h3>.foregroundColor()</h3><p>Changes text or icon color. E.g.,<br><code>.foregroundColor(.blue)</code>,<br><code>.foregroundColor(Color.white)</code>.</p></div>
+                    <div class="card"><h3>.background()</h3><p>Puts a colored background. E.g.,<br><code>.background(Color.black.opacity(0.5))</code>.</p></div>
+                    <div class="card"><h3>.padding()</h3><p>Adds space around a view. E.g.,<br><code>.padding()</code> (default),<br><code>.padding(.horizontal)</code>.</p></div>
+                    <div class="card"><h3>.cornerRadius()</h3><p>Rounds the corners. E.g.,<br><code>.cornerRadius(15)</code>.</p></div>
+                    <div class="card"><h3>.frame()</h3><p>Gives a view a fixed size. E.g.,<br><code>.frame(width: 150, height: 150)</code>,<br><code>.frame(height: 180)</code>.</p></div>
+                    <div class="card"><h3>.resizable()</h3><p>(For Images) Allows the image to be resized.</p></div>
+                    <div class="card"><h3>.aspectRatio() / .scaledToFill()</h3><p>(For Images) Controls how an image fills its frame. E.g.,<br><code>.aspectRatio(contentMode: .fill)</code>.</p></div>
+                    <div class="card"><h3>.clipShape()</h3><p>(For Images) Clips the view into a shape. E.g.,<br><code>.clipShape(Circle())</code>.</p></div>
+                    <div class="card"><h3>.overlay()</h3><p>Layers another view on top, often for borders. E.g.,<br><code>.overlay(Circle().stroke(Color.white, lineWidth: 4))</code>.</p></div>
+                    <div class="card"><h3>.shadow()</h3><p>Adds a drop shadow. E.g.,<br><code>.shadow(radius: 10)</code>.</p></div>
+                    <div class="card"><h3>.listStyle()</h3><p>(For Lists) Changes list appearance. E.g.,<br><code>.listStyle(.plain)</code>.</p></div>
+                    <div class="card"><h3>.ignoresSafeArea()</h3><p>(For Colors/Backgrounds) Makes it fill the whole screen, even under notches. E.g.,<br><code>Color.black.ignoresSafeArea()</code>.</p></div>
+                    <div class="card">
+                        <h3>Modifier Combo: Styled Button Text</h3>
+                        <p>Combining modifiers to create a common button style with padding, background, corner radius, and text styling.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Tap Me!"</span>)
+    .font(.headline)
+    .foregroundColor(.white)
+    .padding() <span class="comment">// Add padding around the text</span>
+    .background(<span class="type">Color</span>.blue) <span class="comment">// Blue background</span>
+    .cornerRadius(<span class="number">10</span>) <span class="comment">// Rounded corners</span>
+    .shadow(radius: <span class="number">5</span>) <span class="comment">// Subtle shadow</span></code></pre>
                         <div class="output-container">
                             <h4>Output</h4>
                             <div class="output-box">
-                                <img src="https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/rmit-sgs-campus-facilities/2019-campus-photos/sgs-campus-night-05.jpg" alt="RMIT Banner" style="max-width: 100%; height: auto; border-radius: 4px; max-height:150px;">
+                                <div style="font-weight: bold; color: white; padding: 10px 20px; background-color: var(--code-keyword); border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">Tap Me!</div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Common Modifiers: Basic Styling</h3>
-                        <p>Modifiers are chained to views to change their appearance or behavior. Common ones include <code>.font()</code>, <code>.foregroundColor()</code>, <code>.padding()</code>, and <code>.background()</code>.</p>
-                        <pre><code><span class="comment">// For Text</span>
-<span class="type">Text</span>(<span class="string">"Styled Text"</span>)
-    .font(.headline) <span class="comment">// Changes text style</span>
-    .foregroundColor(.purple) <span class="comment">// Changes text color</span>
-    .padding() <span class="comment">// Adds space around the text</span>
-    .background(<span class="type">Color</span>.yellow.opacity(<span class="number">0.3</span>)) <span class="comment">// Sets background</span>
-
-<span class="comment">// For Image (SF Symbol)</span>
-<span class="type">Image</span>(systemName: <span class="string">"mic.circle.fill"</span>)
-    .font(.largeTitle) <span class="comment">// Affects SF Symbol size</span>
-    .foregroundColor(.red) <span class="comment">// Changes symbol color</span></code></pre>
-                        <div class="output-container">
-                            <h4>Output</h4>
-                            <div class="output-box" style="gap: 15px;">
-                                <div style="font-size: 1.1em; font-weight: bold; color: purple; padding: 10px; background-color: rgba(255,255,0,0.3); border-radius: 5px;">Styled Text</div>
-                                <i class="fas fa-microphone" style="font-size: 40px; color: red;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Image Modifiers: Sizing & Resizing</h3>
-                        <p>Control image dimensions with modifiers. <code>.resizable()</code> is crucial for project images to allow them to change size. <code>.scaledToFit()</code> fits the image within its frame while preserving aspect ratio. <code>.scaledToFill()</code> fills the frame, potentially cropping. <code>.frame()</code> sets specific dimensions.</p>
-                        <pre><code><span class="comment">// Fit within a frame</span>
-<span class="type">Image</span>(<span class="string">"RMIT-banner"</span>)
+                        <h3>Modifier Combo: Circular Profile Image</h3>
+                        <p>Common pattern for profile images: resizable, specific frame, circular clip, and an overlay border.</p>
+                        <pre><code><span class="type">Image</span>(<span class="string">"avatar1"</span>) <span class="comment">// Assuming "avatar1" is in Assets</span>
     .resizable()
-    .scaledToFit()
-    .frame(height: <span class="number">100</span>) <span class="comment">// Width adjusts</span>
-
-<span class="comment">// Fill a frame (may crop)</span>
-<span class="type">Image</span>(<span class="string">"RMIT-banner"</span>)
-    .resizable()
-    .scaledToFill()
-    .frame(width: <span class="number">250</span>, height: <span class="number">100</span>)
-    .clipped() <span class="comment">// Good with scaledToFill</span></code></pre>
-                        <div class="output-container">
-                            <h4>Output</h4>
-                            <div class="output-box" style="gap: 10px; align-items: stretch;">
-                                <img src="https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/rmit-sgs-campus-facilities/2019-campus-photos/sgs-campus-night-05.jpg" alt="RMIT Banner Scaled to Fit" style="max-width: 100%; height: 100px; object-fit: contain; border: 1px solid var(--border-color);">
-                                <img src="https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/rmit-sgs-campus-facilities/2019-campus-photos/sgs-campus-night-05.jpg" alt="RMIT Banner Scaled to Fill" style="width: 250px; max-width: 100%; height: 100px; object-fit: cover; border: 1px solid var(--border-color); overflow: hidden;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Image Modifiers: Shaping & Effects</h3>
-                        <p>Style images with shapes, borders, and shadows. <code>.clipShape()</code> (e.g., <code>Circle()</code>, <code>RoundedRectangle()</code>) masks the image. <code>.overlay()</code> can add borders. <code>.shadow()</code> adds depth.</p>
-                        <pre><code><span class="type">Image</span>(systemName: <span class="string">"camera.fill"</span>)
-    .font(.system(size: <span class="number">50</span>)) <span class="comment">// Control SF Symbol size</span>
-    .padding(<span class="number">20</span>) <span class="comment">// Add padding before background/clip</span>
-    .background(<span class="type">Color</span>.blue.opacity(<span class="number">0.2</span>))
-    .clipShape(<span class="type">Circle</span>())
-    .overlay(
-        <span class="type">Circle</span>().stroke(<span class="type">Color</span>.blue, lineWidth: <span class="number">2</span>)
+    .scaledToFill() <span class="comment">// Fill the frame, may crop</span>
+    .frame(width: <span class="number">100</span>, height: <span class="number">100</span>)
+    .clipShape(<span class="type">Circle</span>()) <span class="comment">// Clip to a circle</span>
+    .overlay( <span class="comment">// Add a border</span>
+        <span class="type">Circle</span>().stroke(<span class="type">Color</span>.orange, lineWidth: <span class="number">4</span>)
     )
-    .shadow(color: .gray, radius: <span class="number">3</span>, x: <span class="number">2</span>, y: <span class="number">2</span>)</code></pre>
+    .shadow(radius: <span class="number">7</span>)</code></pre>
                         <div class="output-container">
                             <h4>Output</h4>
                             <div class="output-box">
-                                <div style="width: 94px; height: 94px; background-color: rgba(0,122,255,0.2); border-radius: 50%; display:flex; align-items:center; justify-content:center; border: 2px solid #007AFF; box-shadow: 2px 2px 3px gray;">
-                                    <i class="fas fa-camera" style="font-size: 50px; color: var(--text-color);"></i>
+                                <div class="image-placeholder" style="width: 100px; height: 100px; border: 4px solid var(--accent-color); box-shadow: 0 0 7px rgba(0,0,0,0.3);">avatar1<br>Circular</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <h3>Modifier Combo: Card View</h3>
+                        <p>Creating a card-like appearance using padding, background, corner radius, and shadow on a VStack.</p>
+                        <pre><code><span class="type">VStack</span>(alignment: .leading) {
+    <span class="type">Text</span>(<span class="string">"Card Title"</span>)
+        .font(.title2).bold()
+        .foregroundColor(.primary) <span class="comment">// Use primary text color</span>
+    <span class="type">Text</span>(<span class="string">"This is some descriptive text for the card content. It explains what the card is about."</span>)
+        .font(.body)
+        .foregroundColor(.secondary) <span class="comment">// Use secondary text color for subtlety</span>
+}
+.padding() <span class="comment">// Inner padding for content</span>
+.background(<span class="type">Color</span>.gray.opacity(<span class="number">0.1</span>)) <span class="comment">// Light gray background, slightly transparent</span>
+.cornerRadius(<span class="number">12</span>) <span class="comment">// Rounded corners for the card</span>
+.shadow(radius: <span class="number">5</span>) <span class="comment">// Default shadow with a radius</span>
+.padding() <span class="comment">// Outer padding to see shadow</span></code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="background-color: transparent; border: none; padding: 10px;">
+                                <div style="background-color: rgba(128,128,128,0.1); /* Light Gray with opacity */ border-radius: 12px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left;">
+                                    <h5 style="font-size: 1.2em; font-weight: bold; color: var(--heading-color); margin-bottom: 5px;">Card Title</h5>
+                                    <p style="font-size: 0.9em; color: var(--text-color); opacity:0.7; margin:0;">This is some descriptive text for the card content. It explains what the card is about.</p>
                                 </div>
                             </div>
                         </div>
@@ -696,21 +793,21 @@
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Implicit Animation</h3>
-                        <p>The `.animation()` modifier tells SwiftUI to make any changes to this view smooth instead of instant. Tapping the circle will now animate its size change.</p>
-                        <pre><code><span class="property-wrapper">@State</span> <span class="keyword">private var</span> isScaled <span class="operator">=</span> <span class="keyword">false</span>
-
-<span class="type">Circle</span>()
-    .frame(width: <span class="number">50</span>, height: <span class="number">50</span>)
-    .scaleEffect(isScaled ? <span class="number">2</span> : <span class="number">1</span>)
-    .onTapGesture { isScaled.toggle() }
-    .animation(.easeInOut, value: isScaled)</code></pre>
-                        <div class="output-container">
-                            <h4>Interactive Output</h4>
-                            <div class="output-box">
-                                <div style="width: 50px; height: 50px; background-color: #3498db; border-radius: 50%; transition: transform 0.3s ease-in-out; cursor: pointer;" onclick="this.style.transform = this.style.transform === 'scale(2)' ? 'scale(1)' : 'scale(2)'"></div>
-                            </div>
-                        </div>
+                        <h3>.onTapGesture { ... }</h3>
+                        <p>Makes any view tappable. Code inside the curly braces runs on tap.</p>
+                        <pre><code><span class="comment">// Add to an Image or Text view</span>
+<span class="type">Image</span>(<span class="string">"avatar1"</span>)
+    .onTapGesture {
+        <span class="comment">// Action: what happens when tapped</span>
+        currentQuote <span class="operator">=</span> quotes.randomElement() ?? <span class="string">"Hmm..."</span>
+    }</code></pre>
+                    </div>
+                    <div class="card">
+                        <h3>.animation()</h3>
+                        <p>Smoothly animates changes when the watched <code>@State</code> variable updates.</p>
+                        <pre><code><span class="type">Text</span>(currentQuote)
+    .animation(.easeInOut, value: currentQuote)</code></pre>
+                        <p style="font-size:0.85em; margin-top:10px;"><em>The <code>value: currentQuote</code> tells SwiftUI to animate when <code>currentQuote</code> changes.</em></p>
                     </div>
                 </div>
                 
@@ -772,23 +869,37 @@
 
         // Run scripts after the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // NEW: Dynamic random fruit generator
-            const fruits = ["Apple", "Banana", "Cherry"];
-            const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
-            const outputElement = document.getElementById('random-fruit-output');
-            if (outputElement) {
-                outputElement.innerText = `Random fruit: ${randomFruit}`;
-            }
-
-            // NEW: Collapsible section handler
             document.querySelectorAll('.collapsible-header').forEach(header => {
                 header.addEventListener('click', () => {
                     const content = header.nextElementSibling;
                     header.classList.toggle('collapsed');
                     content.classList.toggle('collapsed');
                 });
+
+                // Start all sections collapsed by default, unless they have 'start-open'
+                if (!header.classList.contains('start-open')) {
+                    header.classList.add('collapsed');
+                    if (header.nextElementSibling) {
+                        header.nextElementSibling.classList.add('collapsed');
+                    }
+                } else { // If it should start open, ensure classes are correct
+                    header.classList.remove('collapsed');
+                     if (header.nextElementSibling) {
+                        header.nextElementSibling.classList.remove('collapsed');
+                     }
+                }
             });
+            
+            // NEW: Dynamic random fruit generator
+            const fruits = ["Apple", "Banana", "Cherry"];
+            const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            const randomOutputCombined = document.getElementById('random-output-combined');
+            if (randomOutputCombined) {
+                randomOutputCombined.innerHTML = `Random number: ${randomNumber}<br>Random fruit: ${randomFruit}<br>From empty: Default Value`;
+            }
+            
+            // Note: The main collapsible handler is now part of the loop above.
         });
     </script>
 
