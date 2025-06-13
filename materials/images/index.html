@@ -4,71 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery - RMIT Bootcamp</title>
+    <link rel="stylesheet" href="../css/base-theme.css">
     <style>
-        /* Basic Reset & Font Setup - Adapted from swift-swiftui-cheatsheet.html */
-        :root {
-            --bg-color: #f4f7f9;
-            --card-bg-color: #ffffff;
-            --text-color: #2c3e50;
-            --heading-color: #1a2533;
-            --accent-color: #e67e22; /* RMIT Red might be #D73F09 or similar, using cheatsheet's orange for now */
-            --border-color: #e0e6ed;
-            --shadow-color: rgba(0, 0, 0, 0.05);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #1a202c;
-                --card-bg-color: #2d3748;
-                --text-color: #e2e8f0;
-                --heading-color: #ffffff;
-                --accent-color: #f0984a;
-                --border-color: #4a5568;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Layout */
+        /* Page-specific styles for materials/images/index.html */
         .container {
             max-width: 1200px; /* Adjusted for image gallery */
-            margin: 0 auto;
-            padding: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-        }
-        
-        header h1 {
-            font-size: 2.2rem;
-            color: var(--heading-color);
-            font-weight: 300;
-        }
-
-        header h1 span {
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        main {
-            padding: 20px 0;
-        }
+        /* header h1 is covered by base-theme.css */
+        /* header h1 span is covered by base-theme.css */
 
         .image-gallery-section > h2 {
             font-size: 1.8rem;
@@ -79,29 +23,17 @@
             font-weight: 600;
         }
 
-        .grid-container {
-            display: grid;
+        .grid-container { /* Override from base-theme.css */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minmax for images */
-            gap: 20px;
+            gap: 20px; /* Specific gap for this grid */
         }
 
-        .card {
-            background-color: var(--card-bg-color);
-            border-radius: 8px;
+        .card { /* Override from base-theme.css */
             padding: 15px;
-            box-shadow: 0 4px 6px var(--shadow-color);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
             align-items: center; /* Center image and text */
             text-align: center;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px var(--shadow-color);
-        }
-
         .card img {
             max-width: 100%;
             height: auto;
@@ -131,16 +63,7 @@
 
         .card .download-link:hover {
             background-color: var(--accent-color);
-            color: var(--card-bg-color);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            color: var(--card-bg-color); /* Ensure text is readable on hover */
         }
     </style>
 </head>
