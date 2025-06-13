@@ -111,3 +111,27 @@ footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
 }
+
+/* Styles for the Back to Home button container */
+.back-to-home-container {
+    padding: 10px 0;      /* Adjust vertical padding as needed */
+    margin-bottom: 15px;  /* Space below the button */
+    text-align: left;     /* Align button to the left */
+}
+
+/* Styles for the button itself */
+.back-to-home-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--accent-color);
+    color: var(--card-bg-color); /* Ensuring contrast with accent color */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-to-home-button:hover {
+    background-color: var(--heading-color); /* Darker color on hover */
+    color: var(--card-bg-color);
+}
