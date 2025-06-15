@@ -39,7 +39,7 @@ body {
 
 /* Layout */
 .container {
-    max-width: 900px; /* Default, can be overridden */
+    max-width: 1500px; /* Default, can be overridden */
     margin: 0 auto;
     padding: 20px;
     flex-grow: 1;
