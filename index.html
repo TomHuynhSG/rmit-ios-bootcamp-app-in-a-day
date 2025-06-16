@@ -90,6 +90,49 @@
         .card a:visited {
             color: #ffffff;
         }
+
+        .card img {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .card img.img-large {
+            max-width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-section-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .main-section-header h2 {
+            font-size: 2rem;
+            color: var(--heading-color);
+        }
+
+        /* Instruction Step Styling */
+        .instruction-step {
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .instruction-step h3 {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +149,9 @@
     </header>
 
     <main class="container">
+        <div class="main-section-header">
+            <h2>Bootcamp Resources</h2>
+        </div>
         <section class="cheatsheet-section" id="bootcamp-resources">
             <h2 class="collapsible-header start-open"> <!-- Added start-open to make it open by default -->
                 Bootcamp Setup & Resources
@@ -123,20 +169,97 @@
                             <li>Password: <code>Rm!t202E</code></li>
                         </ul>
                     </div>
-                    <div class="card">
-                        <h3>Opening Swift Playgrounds on Mac:</h3>
-                        <ol style="list-style-type: decimal; padding-left: 20px;">
-                            <li>Click on the <strong>Finder</strong> icon in the Dock (it looks like a blue smiling face).</li>
-                            <li>In the Finder window that appears, click on <strong>Applications</strong> in the sidebar on the left.</li>
-                            <li>Scroll through the list of applications to find <strong>Swift Playgrounds</strong>. It has a white icon with an orange bird.</li>
-                            <li>Double-click the <strong>Swift Playgrounds</strong> icon to open it.</li>
-                            <li>If it's your first time opening it, you might see a welcome screen. You can close this or, if prompted, choose to "Start with an App" or look for a "New Project" / "New App" option. For the bootcamp, we'll typically start a new App project.</li>
-                        </ol>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-section-header">
+            <h2>Software Instructions</h2>
+        </div>
+        <section class="cheatsheet-section" id="start-with-playgrounds">
+            <h2 class="collapsible-header">
+                Start with Playgrounds
+                <span class="collapse-icon"></span>
+            </h2>
+            <div class="collapsible-content">
+                <div class="grid-container" style="grid-template-columns: 1fr;">
+                    <div class="card instruction-step">
+                        <h3>Step 1: Open Spotlight Search</h3>
+                        <p><strong>Description:</strong> This is the quickest way to find and open applications on your Mac.</p>
+                        <p><strong>Instruction:</strong> Press Command + Space bar on your keyboard to bring up the Spotlight Search bar.</p>
+                        <img src="intruction_imgs/Start with Playgrounds - Step 1.png" alt="Start with Playgrounds - Step 1" class="img-large">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 2: Open Swift Playgrounds</h3>
+                        <p><strong>Description:</strong> Use Spotlight to locate and launch the Swift Playgrounds application.</p>
+                        <p><strong>Instruction:</strong> Type "Swift Playground" into the search bar, then click on the "Swift Playground App" from the results to open it.</p>
+                        <img src="intruction_imgs/Start with Playgrounds - Step 2.png" alt="Start with Playgrounds - Step 2" class="img-large">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 3: Create a New SwiftUI App</h3>
+                        <p><strong>Description:</strong> From the application's main window, you will begin a new project.</p>
+                        <p><strong>Instruction:</strong> Click the Create New App... button to start building a new application.</p>
+                        <img src="intruction_imgs/Start with Playgrounds - Step 3.png" alt="Start with Playgrounds - Step 3">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 4: Understand the Interface</h3>
+                        <p><strong>Description:</strong> The Swift Playgrounds workspace is divided into three main panels that help you build your app.</p>
+                        <p><strong>Instruction:</strong></p>
+                        <ul style="list-style-type: disc; padding-left: 20px;">
+                            <li><strong>Left Panel - Project Explorer:</strong> Browse and manage your project files. Think of it as a table of contents for your app.</li>
+                            <li><strong>Center Panel - Code Editor:</strong> This is where you write your app's code using Swift and SwiftUI to describe what the screen should show.</li>
+                            <li><strong>Right Panel - Live Preview (Canvas):</strong> Instantly shows what your app looks like based on your code, helping you see changes in real-time.</li>
+                        </ul>
+                        <img src="intruction_imgs/Start with Playgrounds - Step 4.png" alt="Start with Playgrounds - Step 4" class="img-large">
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="cheatsheet-section" id="troubleshoot-with-playgrounds">
+            <h2 class="collapsible-header">
+                Troubleshoot with Playgrounds
+                <span class="collapse-icon"></span>
+            </h2>
+            <div class="collapsible-content">
+                <div class="grid-container" style="grid-template-columns: 1fr;">
+                    <div class="card instruction-step">
+                        <h3>Step 1: Identify the Error</h3>
+                        <p><strong>Description:</strong> Sometimes, you may encounter an error that prevents the app preview from loading, such as being "Unable to delete the contents of ExecutionExtension's container."</p>
+                        <p><strong>Instruction:</strong> Click the red error icon in the top right of the code editor to see the specific error message.</p>
+                        <img src="intruction_imgs/Troubleshoot with Playgrounds - Step 1 .jpg" alt="Troubleshoot with Playgrounds - Step 1" class="img-large">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 2: Quit Swift Playgrounds</h3>
+                        <p><strong>Description:</strong> To begin troubleshooting, you must first completely close the application.</p>
+                        <p><strong>Instruction:</strong> Right-click on the Swift Playgrounds icon in your Mac's Dock and select Quit.</p>
+                        <img src="intruction_imgs/Troubleshoot with Playgrounds - Step 2.jpg" alt="Troubleshoot with Playgrounds - Step 2">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 3: Open Self Service</h3>
+                        <p><strong>Description:</strong> You will use a utility called Self Service, provided by RMIT ITS, to run a troubleshooting script.</p>
+                        <p><strong>Instruction:</strong> Click the RMIT icon in the top menu bar, then click the Self Service button to launch the application.</p>
+                        <img src="intruction_imgs/Troubleshoot with Playgrounds - Step 3.jpg" alt="Troubleshoot with Playgrounds - Step 3">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 4: Clear the Swift Playground Cache</h3>
+                        <p><strong>Description:</strong> A common fix for this specific error is to clear the application's cached data, which can become corrupted.</p>
+                        <p><strong>Instruction:</strong> In Self Service, click Browse and then All. Find the "Delete Swift Playground Cache" option and click the Run button.</p>
+                        <img src="intruction_imgs/Troubleshoot with Playgrounds - Step 4.jpg" alt="Troubleshoot with Playgrounds - Step 4" class="img-large">
+                    </div>
+                    <div class="card instruction-step">
+                        <h3>Step 5: Verify the Fix</h3>
+                        <p><strong>Description:</strong> After the cache has been cleared, you can reopen your project to confirm that the issue is resolved.</p>
+                        <p><strong>Instruction:</strong> Launch Swift Playgrounds again and open your app. The app should now build successfully and display correctly in the live preview.</p>
+                        <img src="intruction_imgs/Troubleshoot with Playgrounds - Step 5.png" alt="Troubleshoot with Playgrounds - Step 5" class="img-large">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-section-header">
+            <h2>General Resources</h2>
+        </div>
         <div class="grid-container">
             <a href="materials/bootcamp-guide.html" class="card">
                 <h3>iOS Bootcamp Step by Step Guide</h3>
