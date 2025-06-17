@@ -26,7 +26,7 @@
 
         /* Making the selector more specific to override potential base-theme.css styles */
         main.container .image-gallery-section .grid-container {
-            display: grid; /* Explicitly set display to grid */
+            display: grid !important; /* Ensure grid display takes precedence */
             grid-template-columns: repeat(3, minmax(0, 1fr)); /* Robust 3-column grid */
             gap: 20px; /* Specific gap for this grid */
         }
