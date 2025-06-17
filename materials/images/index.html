@@ -24,14 +24,16 @@
             font-weight: 600;
         }
 
-        .grid-container { /* Override from base-theme.css */
+        /* Making the selector more specific to override potential base-theme.css styles */
+        main.container .image-gallery-section .grid-container {
             display: grid; /* Explicitly set display to grid */
-            grid-template-columns: repeat(3, 1fr); /* Display as 3 columns */
+            grid-template-columns: repeat(3, minmax(0, 1fr)); /* Robust 3-column grid */
             gap: 20px; /* Specific gap for this grid */
         }
 
         .card { /* Override from base-theme.css */
             padding: 15px;
+            border: 1px solid var(--border-color, #ddd); /* Added border for visual grid */
             align-items: center; /* Center image and text */
             text-align: center;
             display: flex;
