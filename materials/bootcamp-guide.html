@@ -183,9 +183,6 @@
     <span class="keyword">let</span> fruits <span class="operator">=</span> [<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>]
     <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> {
         <span class="type">VStack</span> {
-            <span class="type">ForEach</span>(fruits, id: \.self) { myFruit <span class="keyword">in</span>
-                <span class="type">Text</span>(myFruit)
-            }
             <span class="type">Text</span>(<span class="string">"My random fruit is below:"</span>)
             <span class="type">Text</span>(fruits.randomElement() ?? <span class="string">"No fruit!"</span>)
         }
