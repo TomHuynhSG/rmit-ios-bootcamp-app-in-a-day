@@ -303,24 +303,9 @@
     }
 }</code></pre>
                     </div>
+
                     <div class="card">
-                        <h3>15. List { ... }</h3>
-                        <p>Creates a scrolling list of items. Often contains HStacks.</p>
-                        <pre><code><span class="type">List</span> {
-    <span class="type">HStack</span> {
-        <span class="type">Image</span>(systemName: <span class="string">"music.note"</span>)
-        <span class="type">Text</span>(<span class="string">"Music"</span>)
-    }
-    <span class="type">HStack</span> {
-        <span class="type">Image</span>(systemName: <span class="string">"film.fill"</span>)
-        <span class="type">Text</span>(<span class="string">"Movies"</span>)
-    }
-}
-.frame(height: <span class="number">100</span>) 
-.listStyle(<span class="type">.plain</span>)</code></pre>
-                    </div>
-                    <div class="card">
-                        <h3>16. State & Actions</h3>
+<h3>15. State & Actions</h3>
                         <p>Use <code>@State</code> to store a value that can change. A <code>Button</code> can change that value, and SwiftUI will automatically update the view.</p>
                         <pre><code><span class="keyword">struct</span> <span class="type">ContentView</span>: <span class="type">View</span> {
     <span class="property-wrapper">@State</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="number">0</span>
@@ -336,7 +321,7 @@
 }</code></pre>
                     </div>
                     <div class="card">
-                        <h3>17. onTapGesture { ... }</h3>
+<h3>16. onTapGesture { ... }</h3>
                         <p>Makes any view tappable. Code inside the curly braces runs on tap.</p>
                         <pre><code><span class="keyword">struct</span> <span class="type">ContentView</span>: <span class="type">View</span> {
     <span class="property-wrapper">@State</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="number">0</span>
@@ -353,7 +338,7 @@
 }</code></pre>
                     </div>
                     <div class="card">
-                        <h3>18. Animation</h3>
+<h3>17. Animation</h3>
                         <p>Smoothly animates changes with <code>withAnimation()</code> when the watched <code>@State</code> variable updates.</p>
                         <pre><code><span class="keyword">struct</span> <span class="type">ContentView</span>: <span class="type">View</span> {
     <span class="property-wrapper">@State</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="number">0</span>
@@ -446,8 +431,8 @@
                     </div>
                     <div class="card">
                         <h3>Step 4: Add a List of hobbies</h3>
-                        <p>Use a `List` view to display a scrollable list of hobbies, with each item formatted using an `HStack` to pair an icon with text.</p>
-                        <pre><code><span class="type">List</span> {
+                        <p>Use a <code>VStackLayout</code> to display a list of hobbies, with each item formatted using an <code>HStack</code> to pair an icon with text.</p>
+                        <pre><code class="language-swift"><span class="type">VStackLayout</span>(alignment: <span class="type">.leading</span>, spacing: <span class="number">15</span>) {
     <span class="type">HStack</span> {
         <span class="type">Image</span>(systemName: <span class="string">"gamecontroller.fill"</span>)
         <span class="type">Text</span>(<span class="string">"Gaming"</span>)
@@ -461,10 +446,10 @@
         <span class="type">Text</span>(<span class="string">"Watching Movies"</span>)
     }
 }
+.padding()
+.background(<span class="type">Color</span>.white)
 .cornerRadius(<span class="number">15</span>)
-.listStyle(.plain)
-.foregroundColor(<span class="type">.blue</span>)
-.frame(width: <span class="number">250</span>)</code></pre>
+.foregroundColor(<span class="type">.blue</span>)</code></pre>
                     </div>
                 </div>
             </div>
@@ -520,21 +505,20 @@
                     </div>
                     <div class="card">
                         <h3>Step 3: The Display (A Text View for the Quote)</h3>
-                        <p>Add a `Text` view to display the value of the `currentAnswer` state variable, with styling to make it stand out.</p>
-                        <pre><code><span class="type">Text</span>(currentAnswer)
+                        <p>Add a <code>Text</code> view to display the value of the <code>currentAnswer</code> state variable, with styling to make it stand out.</p>
+                        <pre><code class="language-swift"><span class="type">Text</span>(currentAnswer)
     .font(<span class="type">.title3</span>)
-    .fontWeight(.medium)
-    .multilineTextAlignment(.center)
+    .fontWeight(<span class="type">.medium</span>)
     .foregroundColor(<span class="type">.white</span>)
-    .frame(minHeight: <span class="number">40</span>) <span class="comment">// Give it space so the layout doesn't jump</span>
+    .frame(height:<span class="number">50</span>)
     .padding()
     .background(<span class="type">.black</span>.opacity(<span class="number">0.5</span>))
     .cornerRadius(<span class="number">15</span>)</code></pre>
                     </div>
                     <div class="card">
                         <h3>Step 4: The Trigger (.onTapGesture)</h3>
-                        <p>Make the view interactive by adding an `.onTapGesture` modifier. When tapped, it will select a new random answer from the `allAnswers` array and update the `currentAnswer`.</p>
-                        <pre><code>.onTapGesture { 
+                        <p>Make the view interactive by adding an <code>.onTapGesture</code> modifier. When tapped, it will select a new random answer from the <code>allAnswers</code> array and update the <code>currentAnswer</code>.</p>
+                        <pre><code>.onTapGesture {
     currentAnswer <span class="operator">=</span> allAnswers.randomElement()!
 }</code></pre>
                     </div>
@@ -641,7 +625,7 @@
                     <div class="card" style="grid-column: 1 / -1;">
                         <h3>Complete <code>ContentView.swift</code></h3>
                         <p>The full code for the "Magic Me" app after all steps and challenges.</p>
-                        <pre><code><span class="preprocessor">import</span> <span class="type">SwiftUI</span>
+                        <pre><code class="language-swift"><span class="preprocessor">import</span> <span class="type">SwiftUI</span>
 
 <span class="keyword">struct</span> <span class="type">ContentView</span>: <span class="type">View</span> {
     <span class="keyword">let</span> allAnswers <span class="operator">=</span> [
@@ -681,24 +665,24 @@
         <span class="type">ZStack</span> {
             <span class="type">Color</span>.mint
             <span class="type">VStack</span> {
-                <span class="type">Spacer</span>(minLength: <span class="number">30</span>)
+                <span class="type">Spacer</span>()
                 <span class="type">ZStack</span> {
-                    <span class="type">Image</span>(<span class="string">"avatar-3"</span>)
+                    <span class="type">Image</span>(<span class="string">"avatar-binz"</span>)
                         .resizable() 
                         .scaledToFit()
-                        .frame(width: <span class="number">140</span>) 
+                        .frame(width: <span class="number">150</span>) 
                         .clipShape(<span class="type">Circle</span>()) 
                     <span class="type">Image</span>(<span class="string">"magic-ball-empty"</span>)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:<span class="number">550</span>)                       
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:<span class="number">250</span>)                       
                 }.onTapGesture { 
                     withAnimation(<span class="type">.easeInOut</span>(duration: <span class="number">1.5</span>)) { 
                         currentAnswer <span class="operator">=</span> allAnswers.randomElement()!
                     }
                 }
                 
-                <span class="type">Spacer</span>(minLength: <span class="number">10</span>)
+                <span class="type">Spacer</span>()
                 
                 <span class="type">VStack</span> {
                     <span class="type">Text</span>(<span class="string">"Tom Huynh"</span>)
@@ -709,7 +693,7 @@
                         .font(.headline)
                         .foregroundColor(<span class="type">.red</span>)
                 }
-                <span class="type">Spacer</span>(minLength: <span class="number">30</span>)
+                <span class="type">Spacer</span>()
                 <span class="type">RoundedRectangle</span>(cornerRadius: <span class="number">25</span>)
                     .fill(<span class="type">Color</span>.white)
                     .frame(height: <span class="number">50.0</span>)
@@ -727,11 +711,11 @@
                         <span class="type">Image</span>(systemName: <span class="string">"envelope.fill"</span>)
                             .foregroundColor(<span class="type">Color</span>.red)
                         <span class="type">Text</span>(<span class="string">"tom.huynh@rmit.edu.vn"</span>)
-                            .foregroundColor(<span class="type">.black</span>)
+                            .tint(<span class="type">.black</span>)
                     })
                     .frame(width: <span class="number">250</span>)
-                <span class="type">Spacer</span>(minLength: <span class="number">20</span>)
-                <span class="type">List</span> {
+                <span class="type">Spacer</span>()
+                <span class="type">VStackLayout</span>(alignment: .leading, spacing: <span class="number">15</span>) {
                     <span class="type">HStack</span> {
                         <span class="type">Image</span>(systemName: <span class="string">"gamecontroller.fill"</span>)
                         <span class="type">Text</span>(<span class="string">"Gaming"</span>)
@@ -745,21 +729,23 @@
                         <span class="type">Text</span>(<span class="string">"Watching Movies"</span>)
                     }
                 }
+                .padding()
+                .background(<span class="type">Color</span>.white)
                 .cornerRadius(<span class="number">15</span>)
-                .listStyle(.plain)
                 .foregroundColor(<span class="type">.blue</span>)
-                .frame(width: <span class="number">250</span>)
+                
+                <span class="type">Spacer</span>()
                 
                 <span class="type">Text</span>(currentAnswer)
                     .font(<span class="type">.title3</span>)
                     .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
                     .foregroundColor(<span class="type">.white</span>)
-                    .frame(minHeight: <span class="number">40</span>) <span class="comment">// Give it space so the layout doesn't jump</span>
+                    .frame(height:<span class="number">50</span>)
                     .padding()
                     .background(<span class="type">.black</span>.opacity(<span class="number">0.5</span>))
-                    .cornerRadius(<span class="number">15</span>)    
-                <span class="type">Spacer</span>(minLength: <span class="number">40</span>)
+                    .cornerRadius(<span class="number">15</span>) 
+                
+                <span class="type">Spacer</span>()
             }   
         }
     }
