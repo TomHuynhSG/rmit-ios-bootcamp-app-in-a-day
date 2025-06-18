@@ -15,6 +15,238 @@
         /* header h1 is covered by base-theme.css */
         /* header h1 span is covered by base-theme.css */
 
+        /* Rainbow animation for Divine cards */
+        @keyframes rainbow-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes divine-glow {
+            0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+        }
+
+        /* Enhanced text styling for all Mystery Blind Box cards */
+        .image-gallery-section .card .filename,
+        .image-gallery-section .card p {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Special styling for rarity text in all Mystery Blind Box cards */
+        .image-gallery-section .card p strong {
+            font-weight: bold;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Enhanced download button for all Mystery Blind Box cards */
+        .image-gallery-section .card .download-link {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid !important;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Common rarity styling */
+        .card[style*="ffeaa7"] strong {
+            color: #e17055;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(225, 112, 85, 0.5);
+        }
+        .card[style*="ffeaa7"] .download-link {
+            border-color: #e17055 !important;
+            color: #e17055 !important;
+        }
+        .card[style*="ffeaa7"] .download-link:hover {
+            background-color: #e17055;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="ffeaa7"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(225, 112, 85, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Rare rarity styling */
+        .card[style*="81ecec"] strong {
+            color: #0984e3;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(9, 132, 227, 0.5);
+        }
+        .card[style*="81ecec"] .download-link {
+            border-color: #0984e3 !important;
+            color: #0984e3 !important;
+        }
+        .card[style*="81ecec"] .download-link:hover {
+            background-color: #0984e3;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="81ecec"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(9, 132, 227, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Epic rarity styling */
+        .card[style*="a29bfe"] strong {
+            color: #6c5ce7;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(108, 92, 231, 0.5);
+        }
+        .card[style*="a29bfe"] .download-link {
+            border-color: #6c5ce7 !important;
+            color: #6c5ce7 !important;
+        }
+        .card[style*="a29bfe"] .download-link:hover {
+            background-color: #6c5ce7;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="a29bfe"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Legendary rarity styling */
+        .card[style*="fd79a8"] strong {
+            color: #e84393;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(232, 67, 147, 0.5);
+        }
+        .card[style*="fd79a8"] .download-link {
+            border-color: #e84393 !important;
+            color: #e84393 !important;
+        }
+        .card[style*="fd79a8"] .download-link:hover {
+            background-color: #e84393;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="fd79a8"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(232, 67, 147, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        /* Ultra Rare rarity styling */
+        .card[style*="ffd32a"] strong {
+            color: #ff9f1a;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 159, 26, 0.5);
+        }
+        .card[style*="ffd32a"] .download-link {
+            border-color: #ff9f1a !important;
+            color: #ff9f1a !important;
+        }
+        .card[style*="ffd32a"] .download-link:hover {
+            background-color: #ff9f1a;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="ffd32a"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 159, 26, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* Mythic rarity styling */
+        .card[style*="55efc4"] strong {
+            color: #00b894;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 184, 148, 0.5);
+        }
+        .card[style*="55efc4"] .download-link {
+            border-color: #00b894 !important;
+            color: #00b894 !important;
+        }
+        .card[style*="55efc4"] .download-link:hover {
+            background-color: #00b894;
+            color: white !important;
+            transform: scale(1.05);
+        }
+        .card[style*="55efc4"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .divine-card {
+            background: linear-gradient(45deg, 
+                #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-size: 400% 400%;
+            animation: rainbow-bg 8s ease infinite, divine-glow 3s infinite;
+            border: 2px solid gold !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .divine-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .divine-card::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: inherit;
+            background-size: 400% 400%;
+            filter: blur(10px);
+            opacity: 0.7;
+            z-index: -1;
+            animation: rainbow-bg 8s ease infinite;
+        }
+
+        /* Add a semi-transparent background behind text for better readability */
+        .divine-card .filename,
+        .divine-card p {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Special styling for the Divine rarity text */
+        .divine-card strong {
+            color: gold;
+            font-weight: bold;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .divine-card .download-link {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid gold !important;
+            color: gold !important;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .divine-card .download-link:hover {
+            background-color: gold;
+            color: black !important;
+            text-shadow: none;
+            transform: scale(1.05);
+        }
+
+        .image-gallery-section {
+            margin-top: 40px; /* Add margin top to each gallery section */
+        }
+        
+        .image-gallery-section:first-of-type {
+            margin-top: 0; /* Remove margin from the first section */
+        }
+
         .image-gallery-section > h2 {
             font-size: 1.8rem;
             color: var(--heading-color);
@@ -338,6 +570,36 @@
                     <p class="filename">avatar-secret-10.png</p>
                     <p style="font-size: 0.8rem; color: #ff9f1a; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐ Ultra Rare</p>
                     <a href="avatar-secret-10.png" download="avatar-secret-10.png" class="download-link">Unbox Now!</a>
+                </div>
+                <div class="card" style="background: linear-gradient(to bottom right, #55efc4, #00b894); border: 2px solid #00b894; box-shadow: 0 0 20px #55efc4;">
+                    <img src="avatar-secret-11.png" alt="Preview of avatar-secret-11.png">
+                    <p class="filename">avatar-secret-11.png</p>
+                    <p style="font-size: 0.8rem; color: #00b894; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐ Mythic</p>
+                    <a href="avatar-secret-11.png" download="avatar-secret-11.png" class="download-link">Unbox Now!</a>
+                </div>
+                <div class="card" style="background: linear-gradient(to bottom right, #55efc4, #00b894); border: 2px solid #00b894; box-shadow: 0 0 20px #55efc4;">
+                    <img src="avatar-secret-12.png" alt="Preview of avatar-secret-12.png">
+                    <p class="filename">avatar-secret-12.png</p>
+                    <p style="font-size: 0.8rem; color: #00b894; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐ Mythic</p>
+                    <a href="avatar-secret-12.png" download="avatar-secret-12.png" class="download-link">Unbox Now!</a>
+                </div>
+                <div class="card divine-card">
+                    <img src="avatar-secret-13.png" alt="Preview of avatar-secret-13.png">
+                    <p class="filename">avatar-secret-13.png</p>
+                    <p style="font-size: 0.8rem; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐ Divine</p>
+                    <a href="avatar-secret-13.png" download="avatar-secret-13.png" class="download-link">Unbox Now!</a>
+                </div>
+                <div class="card divine-card">
+                    <img src="avatar-secret-14.png" alt="Preview of avatar-secret-14.png">
+                    <p class="filename">avatar-secret-14.png</p>
+                    <p style="font-size: 0.8rem; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐ Divine</p>
+                    <a href="avatar-secret-14.png" download="avatar-secret-14.png" class="download-link">Unbox Now!</a>
+                </div>
+                <div class="card divine-card">
+                    <img src="avatar-secret-15.png" alt="Preview of avatar-secret-15.png">
+                    <p class="filename">avatar-secret-15.png</p>
+                    <p style="font-size: 0.8rem; margin: 5px 0;"><strong>Rarity:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐ Divine</p>
+                    <a href="avatar-secret-15.png" download="avatar-secret-15.png" class="download-link">Unbox Now!</a>
                 </div>
             </div>
         </section>
