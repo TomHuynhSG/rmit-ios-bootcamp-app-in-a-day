@@ -554,6 +554,50 @@ print(<span class="string">"From empty: <span class="operator">\(</span>randomFr
                     </div>
                 </div>
 
+                <h3 class="subsection-title">Visual & Transformational Effects</h3>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>.opacity()</h3>
+                        <p>Controls the transparency of a view. A value of 1.0 is fully opaque, while 0.0 is fully transparent.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Faded Text"</span>)
+    .opacity(<span class="number">0.5</span>)</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="opacity: 0.5; font-weight: bold;">Faded Text</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>.rotationEffect()</h3>
+                        <p>Rotates a view by a specified angle. You can specify the angle in degrees or radians.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Rotated"</span>)
+    .rotationEffect(.degrees(<span class="number">-45</span>))</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="transform: rotate(-45deg); font-weight: bold;">Rotated</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>.scaleEffect()</h3>
+                        <p>Scales a view larger or smaller. A value of 1.0 is the original size.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Bigger"</span>)
+    .scaleEffect(<span class="number">1.5</span>)</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="transform: scale(1.5); font-weight: bold;">Bigger</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>.blur()</h3>
+                        <p>Applies a Gaussian blur effect to a view. The radius determines the intensity of the blur.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"Blurred"</span>)
+    .blur(radius: <span class="number">3.0</span>)</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="filter: blur(3px); font-weight: bold;">Blurred</div>
+                        </div>
+                    </div>
+                </div>
+
                 <h3 class="subsection-title">Interactivity & Animation</h3>
                 <div class="grid-container">
                     <div class="card">
@@ -591,6 +635,59 @@ print(<span class="string">"From empty: <span class="operator">\(</span>randomFr
                         <pre><code><span class="type">Text</span>(currentQuote)
     .animation(.easeInOut, value: currentQuote)</code></pre>
                         <p style="font-size:0.85em; margin-top:10px;"><em>The <code>value: currentQuote</code> tells SwiftUI to animate when <code>currentQuote</code> changes.</em></p>
+                    </div>
+                    <div class="card">
+                        <h3>.onAppear() / .onDisappear()</h3>
+                        <p>Triggers an action when a view becomes visible or is removed from the view hierarchy. Useful for loading data or cleanup.</p>
+                        <pre><code><span class="type">Text</span>(<span class="string">"My View"</span>)
+    .onAppear {
+        print(<span class="string">"View appeared!"</span>)
+    }
+    .onDisappear {
+        print(<span class="string">"View disappeared!"</span>)
+    }</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box" style="font-family: monospace; align-items: flex-start;">
+                                (Actions print to the console)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>.sheet()</h3>
+                        <p>Presents a new view modally over the current one. It's controlled by a boolean <code>@State</code> variable.</p>
+                        <pre><code><span class="property-wrapper">@State</span> <span class="keyword">private var</span> isShowingSheet = <span class="keyword">false</span>
+
+<span class="type">Button</span>(<span class="string">"Show Sheet"</span>) {
+    isShowingSheet = <span class="keyword">true</span>
+}
+.sheet(isPresented: $isShowingSheet) {
+    <span class="type">Text</span>(<span class="string">"This is a modal sheet."</span>)
+}</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box">
+                                (Presents a new view from the bottom)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>.alert()</h3>
+                        <p>Displays an alert message to the user, also controlled by a boolean <code>@State</code> variable.</p>
+                        <pre><code><span class="property-wrapper">@State</span> <span class="keyword">private var</span> isShowingAlert = <span class="keyword">false</span>
+
+<span class="type">Button</span>(<span class="string">"Show Alert"</span>) {
+    isShowingAlert = <span class="keyword">true</span>
+}
+.alert(<span class="string">"Important Message"</span>, isPresented: $isShowingAlert) {
+    <span class="type">Button</span>(<span class="string">"OK"</span>, role: .cancel) { }
+}</code></pre>
+                        <div class="output-container">
+                            <h4>Output</h4>
+                            <div class="output-box">
+                                (Shows a system alert pop-up)
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
