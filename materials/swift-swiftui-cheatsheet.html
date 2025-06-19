@@ -466,10 +466,10 @@ print(<span class="string">"From empty: <span class="operator">\(</span>randomFr
 
                 <h3 class="subsection-title">Common Modifiers (Your Superpowers!)</h3>
                 <div class="grid-container">
-                    <div class="card"><h3>.font()</h3><p>Changes text font and size. E.g.,<br><code>.font(.title)</code>,<br><code>.font(.headline)</code>,<br><code>.font(.system(size: 32, weight: .bold))</code>.</p></div>
+                    <div class="card"><h3>.font()</h3><p>Changes text font and size. E.g.,<br><code>.font(.title)</code>,<br><code>.font(.headline)</code>,<br><code>.font(.system(size: 32, weight: .bold))</code>,<br><code>.font(.custom("Corinthia-Regular", size: 70))</code>,<br><code>.font(.custom("Silkscreen-Regular", size: 40))</code>,<br><code>.font(.custom("Sacramento-Regular", size: 50))</code>.</p></div>
                     <div class="card"><h3>.foregroundColor()</h3><p>Changes text or icon color. E.g.,<br><code>.foregroundColor(.blue)</code>,<br><code>.foregroundColor(Color.white)</code>.</p></div>
                     <div class="card"><h3>.background()</h3><p>Puts a colored background. E.g.,<br><code>.background(Color.black.opacity(0.5))</code>.</p></div>
-                    <div class="card"><h3>.padding()</h3><p>Adds space around a view. E.g.,<br><code>.padding()</code> (default),<br><code>.padding(.horizontal)</code>.</p></div>
+                    <div class="card"><h3>.padding()</h3><p>Adds space around a view. E.g.,<br><code>.padding()</code> (all sides),<br><code>.padding(.horizontal)</code> (left & right),<br><code>.padding([.top, .leading], 10)</code> (specific sides & amount).</p></div>
                     <div class="card"><h3>.cornerRadius()</h3><p>Rounds the corners. E.g.,<br><code>.cornerRadius(15)</code>.</p></div>
                     <div class="card"><h3>.frame()</h3><p>Gives a view a fixed size. E.g.,<br><code>.frame(width: 150, height: 150)</code>,<br><code>.frame(height: 180)</code>.</p></div>
                     <div class="card"><h3>.resizable()</h3><p>(For Images) Allows the image to be resized.</p></div>
@@ -477,6 +477,16 @@ print(<span class="string">"From empty: <span class="operator">\(</span>randomFr
                     <div class="card"><h3>.clipShape()</h3><p>(For Images) Clips the view into a shape. E.g.,<br><code>.clipShape(Circle())</code>.</p></div>
                     <div class="card"><h3>.overlay()</h3><p>Layers another view on top, often for borders. E.g.,<br><code>.overlay(Circle().stroke(Color.white, lineWidth: 4))</code>.</p></div>
                     <div class="card"><h3>.shadow()</h3><p>Adds a drop shadow. E.g.,<br><code>.shadow(radius: 10)</code>.</p></div>
+                    <div class="card"><h3>.offset()</h3><p>Moves a view from its original position without affecting the layout of other views. E.g.,<br><code>.offset(x: 20, y: -10)</code> moves the view 20 points right and 10 points up.</p></div>
+                    <div class="card">
+                        <h3>.position()</h3>
+                        <p>Places the center of a view at a specific coordinate within its parent's coordinate space. E.g.,<br><code>.position(x: 100, y: 150)</code>.</p>
+                        <p>For dynamic centering, use <code>GeometryReader</code> to get the parent's size:</p>
+                        <pre><code><span class="type">GeometryReader</span> { geometry <span class="keyword">in</span>
+    <span class="type">Text</span>(<span class="string">"Centered"</span>)
+        .position(x: geometry.size.width / <span class="number">2</span>, y: geometry.size.height / <span class="number">2</span>)
+}</code></pre>
+                    </div>
                     <div class="card"><h3>.listStyle()</h3><p>(For Lists) Changes list appearance. E.g.,<br><code>.listStyle(.plain)</code>.</p></div>
                     <div class="card"><h3>.ignoresSafeArea()</h3><p>(For Colors/Backgrounds) Makes it fill the whole screen, even under notches. E.g.,<br><code>Color.black.ignoresSafeArea()</code>.</p></div>
                     <div class="card">
